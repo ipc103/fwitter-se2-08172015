@@ -1,0 +1,16 @@
+<h1>Fwitter</h1>
+
+<% @tweets.each do |tweet| %>
+<%= tweet.username %> says: <%= tweet.message %> </br>
+<% end %>
+
+<!-- create a form using the form tag -->
+<form action="/new_tweet" method="POST">
+  <input type="text" name="username" placeholder="Username">
+  <input type="text" name="message" placeholder="140 characters or less: ">
+  <input type="submit" value="MAKE A NEW TWEET!!!">
+</form>
+<!-- ### the form needs a method and an action -->
+<!-- ### the method should be post
+### the form needs inputs for username and message
+### the action should be "/new_tweet -->
