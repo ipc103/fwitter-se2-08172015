@@ -1,2 +1,2 @@
-.bundle
-/db/database.db
+/.bundle
+*.db
