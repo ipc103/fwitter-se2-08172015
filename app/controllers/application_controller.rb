@@ -1,5 +1,6 @@
 require "./config/environment"
 require "./app/models/tweet"
+require "./app/models/user"
 
 class ApplicationController < Sinatra::Base
   
@@ -10,15 +11,18 @@ class ApplicationController < Sinatra::Base
   
   get "/" do
     @tweets = Tweet.all
+    @users = User.all
     erb :index
   end
   
-
-  
   post '/new_tweet' do
-    @tweet = Tweet.new({:username => params[:username], :message => params[:message]})
+    @tweet = Tweet.new({:user_id => params[:user_id], :message => params[:message]})
     @tweet.save
     redirect to "/"
+  end
+  
+  get '/users' do
+    erb :users
   end
   
   

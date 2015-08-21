@@ -1,12 +1,17 @@
 <h1>Fwitter</h1>
 
 <% @tweets.each do |tweet| %>
-<%= tweet.username %> says: <%= tweet.message %> </br>
+<%= tweet.user.username %> says: <%= tweet.message %> <br>
 <% end %>
 
 <!-- create a form using the form tag -->
 <form action="/new_tweet" method="POST">
-  <input type="text" name="username" placeholder="Username">
+  <p>Users:</p>
+  <select name="user_id">
+    <% @users.each do |user| %>
+    <option value="<%= user.id %>"><%= user.username %></option>
+    <% end %>
+  </select>
   <input type="text" name="message" placeholder="140 characters or less: ">
   <input type="submit" value="MAKE A NEW TWEET!!!">
 </form>
